@@ -1,0 +1,22 @@
+
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" >
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="/mysite">회사이름</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/company">회사소개</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/services">서비스</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/promotion">홍보자료</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">제휴문의</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/recruit">채용</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}">{{ user.username }} (logout)</a> </li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">login</a> </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>

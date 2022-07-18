@@ -20,4 +20,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
+    path('services/<int:content_id>/', views.detail, name='detail'),
 ]

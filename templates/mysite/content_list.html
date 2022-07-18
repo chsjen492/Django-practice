@@ -1,42 +1,7 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="ko">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Creative - Start Bootstrap Theme</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'styles.css' %}" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="/mysite">회사이름</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/company">회사소개</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/services">서비스</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/promotion">홍보자료</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contact">제휴문의</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/recruit">채용</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+{% block content %}
+
         <!-- Masthead-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 h-100">
@@ -46,7 +11,7 @@
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">회사 소개문이 들어가는 위치입니다.</p>
+                        <p class="text-white-75 mb-5">{{ "회사 소개문이 들어가는 위치입니다. 회사에 대한 내용을 자세히 보고 싶으시다면 아래 버튼을 클릭해주세요" | truncatewords:10 }}</p>
                         <a class="btn btn-primary btn-xl" href="/company">자세히 보기</a>
                     </div>
                 </div>
@@ -68,7 +33,7 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="{% static 'assets/img/portfolio/fullsize/1.jpg' %}" title="Project Name">
+                        <a class="portfolio-box" href="{% url 'detail' 1 %}" title="Project Name">
                             <img class="img-fluid" src="{% static 'assets/img/portfolio/thumbnails/1.jpg' %}" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
@@ -125,23 +90,4 @@
             </div>
         </div>
 
-        <!-- Footer-->
-        <footer class="bg-dark py-5">
-            <div class="container px-4 px-lg-5">
-                <p style="color:white">
-                    회사이름<br>
-                    대표자명 : 홍길동<br>
-                    서울특별자치시 중구 세종대로 110<br>
-                </p>
-                <a href="https://www.instagram.com/">
-                <img class="instagram icon" align="right" width = "40px" height="40px"  src="{% static 'assets/img/instagram.png' %}"  />
-                </a>
-                <a href="https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0">
-                    <img class="naver blog icon"align="right" width="40px" height="40px" src="{% static 'assets/img/blog.png' %}"
-                </a>
-                <div class="small text-center text-muted">Copyright &copy; 2022 - 회사이름</div>
-            </div>
-        </footer>
-
-    </body>
-</html>
+{% endblock %}
