@@ -24,3 +24,6 @@ def contact(request):
 # 채용 페이지
 def recruit(request):
     return render(request, 'pages/recruit.html')
+
+def service1(request):
+    return render(request, 'pages/service 1.html')

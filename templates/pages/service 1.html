@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                        <h1 class="text-white font-weight-bold">제휴 문의 페이지 입니다.</h1>
+                        <hr class="divider" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <p class="text-white-75 mb-5">안내문과 연락처가 표시됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+<section class="mb-5">
+    <div class="card bg-light">
+        <div class="card-body">
+            <form method = "post" class = "mb-4" action="">
+                {% csrf_token %}
+                <textarea id = "content" name = "content" class="form-control" rows = "3" placeholder="내용을 입력해주세요."></textarea>
+            </form>
+            {% for comment in content_list.comment_set.all %}
+            <div class="d-flex">
+                <div class="ms-3">
+                    <div class="fw-bold">{{ comment.author.username }} &nbsp&nbsp {{ comment.create_date }}</div>
+                    {{ comment.content }}
+                </div>
+            </div>
+            <br/>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
