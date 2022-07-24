@@ -7,8 +7,8 @@ def index(request):
     context = {'content_list': content_list}
     return render(request, 'mysite/content_list.html', context)  # content_list를 html파일에 적용 후 리턴
 
-def detail(request, contend_id):
+def detail(request, content_id):
 
-    content_list = get_object_or_404(MainContent, pk=contend_id)
+    content_list = get_object_or_404(MainContent, pk=content_id)
     context = {'content_list': content_list}
     return render(request, 'mysite/comtent_detail.html', context)
