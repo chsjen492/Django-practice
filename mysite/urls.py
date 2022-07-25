@@ -21,4 +21,5 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('services/<int:content_id>/', views.detail, name='detail'),
+    path('comment/create/', views.comment_create, name='comment_create'),
 ]
